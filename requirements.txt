@@ -1,0 +1,8 @@
+gradio
+torch[cpu]
+transformers
+SentencePiece
+datasets
+scipy
+openai
+huggingface_hub
