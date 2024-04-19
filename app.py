@@ -6,7 +6,7 @@ import os
 import time
     
 #ASR
-pipe = pipeline("automatic-speech-recognition", model="openai/whisper-base", device="cpu")
+pipe = pipeline("automatic-speech-recognition", model="openai/whisper-small", device="cpu")
 #For text-to-text response
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
@@ -52,6 +52,7 @@ mic_transcribe = gr.Interface(
     fn=process,
     inputs=gr.Audio(sources="microphone", type="filepath"),
     outputs=gr.Audio(label="Speech Output")
+    # outputs = "text"
 )
 
 with demo:
@@ -60,4 +61,4 @@ with demo:
         ["Process Speech"],
     )
 
-demo.launch(debug=True, share=True, auth=("admin", "godisgreat123!"))
+demo.launch(debug=True, share=True)
